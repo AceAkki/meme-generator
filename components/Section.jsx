@@ -1,12 +1,20 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function Section () {
+    let [memeData, setMemeData] = useState([])
     let [meme, setMeme] = useState({
         topTxt:"One does not simply",
         bottomTxt:"Walk into Mordor",
         imageURL:"http://i.imgflip.com/1bij.jpg"
     });
 
+    useEffect(()=> {
+        fetch("https://api.imgflip.com/get_memes")
+        .then(res => res.json())
+        .then(dt => {
+            setMemeData(dt.data.memes)
+        })
+    }, [])
 
     function handleChange(event) {
         const {value, name} = event.currentTarget;
