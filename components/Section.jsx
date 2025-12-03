@@ -25,6 +25,16 @@ export default function Section () {
             }
         })
     }
+
+    function changeMeme(){
+        let randomMeme = Math.round(Math.random() * memeData.length);
+        setMeme(oldMeme => {
+            return {
+                ...oldMeme,
+                imageURL: memeData[randomMeme].url
+            }
+        })
+    }
     return (
         <>
             <section className="meme-sec">
@@ -49,7 +59,7 @@ export default function Section () {
                             value={meme.bottomTxt}
                         />
                     </label>
-                    <button> Get a new Meme Image  </button>
+                    <button onClick={changeMeme}> Get a new Meme Image  </button>
 
                 </div>
                 <div className="meme">
