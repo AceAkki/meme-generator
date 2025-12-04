@@ -16,8 +16,8 @@ function App() {
       <Header />
       <main>
         <Section />
-        {(show) ? <WindowTracker /> : null}
-        <button onClick={handleTracker}>Toggle Tracker</button>
+        {/* {(show) ? <WindowTracker /> : null}
+        <button onClick={handleTracker}>Toggle Tracker</button> */}
       </main>
     </>
   )
